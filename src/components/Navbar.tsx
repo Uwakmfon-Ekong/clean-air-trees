@@ -9,6 +9,7 @@ const links = [
   { label: "About Us", href: "/about" },
   { label: "Why Trees", href: "/why-trees" },
   { label: "What We Do", href: "/what-we-do" },
+  { label: "Education", href: "/education" },
   { label: "Projects", href: "/projects" },
   { label: "Blog", href: "/blog" },
   { label: "Contact", href: "/contact" },
