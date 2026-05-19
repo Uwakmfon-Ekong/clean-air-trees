@@ -55,9 +55,7 @@ export default function Footer() {
         <div className="border-t border-white/8 pt-6 flex flex-col sm:flex-row justify-between items-center gap-3">
           <p className="text-[12px] text-white/30">© 2025 The Clean Air Trees Project. All rights reserved.</p>
           <div className="flex gap-3">
-            {["Facebook", "Instagram", "Twitter"].map((s) => (
-              <Link key={s} href="/contact" className="text-[11px] text-white/40 hover:text-forest-pale transition-colors no-underline">{s}</Link>
-            ))}
+            <Link href="https://www.facebook.com/Clean Air Trees Project" target="_blank" className="text-[11px] text-white/40 hover:text-forest-pale transition-colors no-underline">Facebook</Link>
           </div>
         </div>
       </div>

@@ -9,7 +9,6 @@ const whyCards = [
     title: "Cleaner Air",
     desc: "Producing oxygen and improving air quality for communities everywhere.",
     href: "/why-trees#air",
-    
   },
   {
     title: "Flood Protection",
@@ -35,6 +34,30 @@ const whyCards = [
     title: "Fight Climate Change",
     desc: "Absorbing carbon dioxide and slowing global warming for future generations.",
     href: "/why-trees#climate",
+  },
+];
+
+const projects = [
+  {
+    image: "/communityplanting.png",
+    title: "Community Tree Planting",
+    tag: "Ongoing",
+    desc: "Organizing tree planting events in schools, parks, and neighborhoods.",
+    href: "/projects/community-planting",
+  },
+  {
+    image: "/school-green.jpg",
+    title: "School Green Programs",
+    tag: "Education",
+    desc: "Teaching the next generation about environmental responsibility and tree care.",
+    href: "/projects/school-programs",
+  },
+  {
+    image: "/education.jpeg",
+    title: "Volunteer Initiatives",
+    tag: "Community",
+    desc: "Mobilizing volunteers and youth groups to drive grassroots environmental action.",
+    href: "/projects/volunteer-initiatives",
   },
 ];
 
@@ -212,36 +235,36 @@ export default function Home() {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             {whatWeDoCards.map((c) => (
               <Link
-  key={c.title}
-  href={c.href}
-  className="border border-forest-mist rounded-2xl overflow-hidden no-underline group hover:border-forest-light hover:-translate-y-1 transition-all duration-200 block"
->
-  {/* Image */}
-  <div className="relative h-48 w-full">
-    <Image
-      src={c.image}
-      alt={c.title}
-      fill
-      className="object-cover group-hover:scale-105 transition-transform duration-500"
-    />
-  </div>
+                key={c.title}
+                href={c.href}
+                className="border border-forest-mist rounded-2xl overflow-hidden no-underline group hover:border-forest-light hover:-translate-y-1 transition-all duration-200 block"
+              >
+                {/* Image */}
+                <div className="relative h-48 w-full">
+                  <Image
+                    src={c.image}
+                    alt={c.title}
+                    fill
+                    className="object-cover group-hover:scale-105 transition-transform duration-500"
+                  />
+                </div>
 
-  {/* Content */}
-  <div className="p-6">
-    <div className="text-sm font-semibold text-forest-bright mb-2 tracking-widest">
-      {c.num}
-    </div>
-    <h3 className="text-xl font-bold text-forest-dark mb-2">
-      {c.title}
-    </h3>
-    <p className="text-sm text-gray-500 leading-relaxed mb-3">
-      {c.desc}
-    </p>
-    <span className="text-forest-light text-sm group-hover:translate-x-1 transition-transform block">
-      Learn more →
-    </span>
-  </div>
-</Link>
+                {/* Content */}
+                <div className="p-6">
+                  <div className="text-sm font-semibold text-forest-bright mb-2 tracking-widest">
+                    {c.num}
+                  </div>
+                  <h3 className="text-xl font-bold text-forest-dark mb-2">
+                    {c.title}
+                  </h3>
+                  <p className="text-sm text-gray-500 leading-relaxed mb-3">
+                    {c.desc}
+                  </p>
+                  <span className="text-forest-light text-sm group-hover:translate-x-1 transition-transform block">
+                    Learn more →
+                  </span>
+                </div>
+              </Link>
             ))}
           </div>
           <div className="text-center mt-10">
@@ -265,7 +288,7 @@ export default function Home() {
                 alt="Founder"
                 className="rounded-full mx-auto mb-3"
               />
-              <p className="text-sm mt-2">Photo of team/founder</p>
+              
             </div>
             <div className="absolute bottom-6 left-6 right-6 bg-forest-darkest/80 rounded-2xl p-4">
               <p className="text-white font-semibold text-sm">David & Family</p>
@@ -372,44 +395,35 @@ export default function Home() {
             </Link>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            {[
-              {
-                emoji: "🌊",
-                title: "Community Tree Planting",
-                tag: "Ongoing",
-                desc: "Organizing tree planting events in schools, parks, and neighborhoods.",
-                href: "/projects/community-planting",
-              },
-              {
-                emoji: "🏫",
-                title: "School Green Programs",
-                tag: "Education",
-                desc: "Teaching the next generation about environmental responsibility and tree care.",
-                href: "/projects/school-programs",
-              },
-              {
-                emoji: "🤝",
-                title: "Volunteer Initiatives",
-                tag: "Community",
-                desc: "Mobilizing volunteers and youth groups to drive grassroots environmental action.",
-                href: "/projects/volunteer-initiatives",
-              },
-            ].map((p) => (
+            {projects.map((p) => (
               <Link
                 key={p.title}
                 href={p.href}
                 className="border border-gray-100 rounded-2xl overflow-hidden no-underline hover:-translate-y-1 hover:shadow-md transition-all duration-200 block group"
               >
-                <div className="h-44 bg-gradient-to-br from-forest-mist to-forest-fog flex items-center justify-center text-5xl group-hover:scale-105 transition-transform duration-300">
-                  {p.emoji}
+                {/* IMAGE SECTION */}
+                <div className="relative h-44 w-full overflow-hidden bg-gray-100">
+                  <Image
+                    src={p.image}
+                    alt={p.title}
+                    fill
+                    className="object-cover group-hover:scale-105 transition-transform duration-300"
+                  />
+
+                  {/* subtle overlay for depth */}
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent" />
                 </div>
+
+                {/* CONTENT */}
                 <div className="p-6">
                   <span className="bg-forest-mist text-forest-dark text-[11px] px-3 py-1 rounded-full uppercase tracking-wider font-medium">
                     {p.tag}
                   </span>
+
                   <h3 className="text-lg font-bold text-forest-dark mt-3 mb-2">
                     {p.title}
                   </h3>
+
                   <p className="text-sm text-gray-500 leading-relaxed">
                     {p.desc}
                   </p>
