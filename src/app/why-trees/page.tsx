@@ -137,12 +137,12 @@ export default function WhyTreesPage() {
           >
             Donate Now
           </Link>
-          <Link
+          {/* <Link
             href="/volunteer"
             className="border-2 border-white text-white px-8 py-3.5 rounded-full text-sm font-semibold hover:bg-white/10 transition-colors no-underline"
           >
             Volunteer
-          </Link>
+          </Link> */}
         </div>
       </section>
     </main>

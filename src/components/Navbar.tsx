@@ -6,11 +6,12 @@ import logo from "../../public/logo.png";
 
 const links = [
   { label: "Home", href: "/" },
-  { label: "About Us", href: "/about" },
+  
   { label: "Why Trees", href: "/why-trees" },
   { label: "What We Do", href: "/what-we-do" },
   { label: "Education", href: "/education" },
   { label: "Projects", href: "/projects" },
+  { label: "About Us", href: "/about" },
   // { label: "Blog", href: "/blog" },
   { label: "Contact", href: "/contact" },
 ];
@@ -23,10 +24,10 @@ export default function Navbar() {
       <div className="max-w-7xl mx-auto px-6 flex items-center justify-between h-16">
         {/* Logo */}
         <Link href="/" className="flex items-center gap-3 no-underline">
-          <Image src={logo} alt="Logo"  className="rounded-full w-10" />
+          <Image src={logo} alt="Logo"  className="rounded-full w-20" />
           <div>
-            <div className="text-white font-semibold text-sm leading-tight">THE CLEAN AIR</div>
-            <div className="text-forest-pale text-xs tracking-widest leading-tight">TREES PROJECT</div>
+            <div className="text-white font-semibold text-[28px] leading-tight">THE CLEAN AIR</div>
+            <div className="text-forest-pale text-lg tracking-widest leading-tight">TREES PROJECT</div>
           </div>
         </Link>
 
@@ -45,9 +46,9 @@ export default function Navbar() {
           <Link href="/donate" className="bg-white text-forest-dark text-[13px] font-semibold px-5 py-2 rounded-full hover:bg-forest-fog transition-colors no-underline">
             Donate Now
           </Link>
-          <Link href="/volunteer" className="border border-white/50 text-white text-[13px] px-5 py-2 rounded-full hover:bg-white/10 transition-colors no-underline">
+          {/* <Link href="/volunteer" className="border border-white/50 text-white text-[13px] px-5 py-2 rounded-full hover:bg-white/10 transition-colors no-underline">
             Volunteer
-          </Link>
+          </Link> */}
         </div>
 
         {/* Mobile */}

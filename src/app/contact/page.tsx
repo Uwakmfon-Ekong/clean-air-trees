@@ -64,7 +64,7 @@ export default function ContactPage() {
                     <option>Partnership</option>
                     <option>Donation</option>
                     <option>Volunteering</option>
-                    <option>Media & Press</option>
+                    {/* <option>Media & Press</option> */}
                   </select>
                 </div>
                 <div className="flex flex-col gap-1.5">

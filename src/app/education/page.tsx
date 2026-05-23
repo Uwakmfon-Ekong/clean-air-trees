@@ -12,49 +12,49 @@ const iconMap = {
 
 const whyMatters = [
   {
-    num: "01",
+   
     title: "Protects Human Health",
     desc: "Cleaner air reduces diseases like asthma, lung cancer, heart disease, allergies, and breathing problems.",
     color: "bg-green-50 border-green-200",
   },
   {
-    num: "02",
+    
     title: "Improves Quality of Life",
     desc: "Fresh air helps people feel healthier, sleep better, and have more energy for daily activities.",
     color: "bg-blue-50 border-blue-200",
   },
   {
-    num: "03",
+    
     title: "Protects Children & Elderly",
     desc: "Young children and older adults are more sensitive to polluted air. Cleaner air keeps them safer.",
     color: "bg-yellow-50 border-yellow-200",
   },
   {
-    num: "04",
+   
     title: "Helps the Environment",
     desc: "Clean air protects trees, animals, rivers, and crops from harmful pollution.",
     color: "bg-emerald-50 border-emerald-200",
   },
   {
-    num: "05",
+    
     title: "Reduces Climate Change",
     desc: "Less pollution means fewer harmful gases in the atmosphere, helping to slow global warming.",
     color: "bg-orange-50 border-orange-200",
   },
   {
-    num: "06",
+   
     title: "Increases Productivity",
     desc: "People work and study better when the air is clean because their brains and bodies function more effectively.",
     color: "bg-purple-50 border-purple-200",
   },
   {
-    num: "07",
+   
     title: "Creates Healthier Communities",
     desc: "Cleaner neighborhoods encourage outdoor activities like walking, exercise, and recreation.",
     color: "bg-pink-50 border-pink-200",
   },
   {
-    num: "08",
+    
     title: "Saves Money",
     desc: "Better air quality reduces medical expenses and healthcare costs caused by pollution-related illnesses.",
     color: "bg-teal-50 border-teal-200",
@@ -362,19 +362,17 @@ export default function EducationPage() {
             <h2 className="text-4xl font-bold text-forest-dark mb-4">
               8 Reasons Clean Air Matters
             </h2>
-            <p className="text-gray-500 max-w-xl mx-auto leading-relaxed">
-              hover each card to learn more
-            </p>
+            
           </div>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
             {whyMatters.map((r, i) => (
               <div
-                key={r.num}
+               
                 className={`border-2 rounded-2xl p-6 hover:-translate-y-2 hover:shadow-lg transition-all duration-200 cursor-default ${r.color}`}
                 style={{ animation: `popIn 0.5s ${i * 0.08}s ease both` }}
               >
                 <div className="text-xs font-bold text-forest-bright tracking-widest mb-3">
-                  {r.num}
+                 
                 </div>
                 <h3 className="text-base font-bold text-forest-dark mb-2">
                   {r.title}
