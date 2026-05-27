@@ -6,6 +6,7 @@ const stripe = new Stripe(process.env.STRIPE_SECRET_KEY!);
 export async function POST(req: NextRequest) {
   try {
     const { amount, frequency } = await req.json();
+     
 
     const safeAmount = Number(amount);
 
@@ -16,7 +17,7 @@ export async function POST(req: NextRequest) {
       );
     }
 
-    if (!["monthly", "one-time"].includes(frequency)) {
+    if (!["monthly", "one-time"].includes(frequency)){
       return NextResponse.json(
         { error: "Invalid frequency" },
         { status: 400 }

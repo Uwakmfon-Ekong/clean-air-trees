@@ -5,7 +5,9 @@ import Link from "next/link";
 export default function DonatePage() {
   const [selected, setSelected] = useState(0);
   const [custom, setCustom] = useState("");
-  const [frequency, setFrequency] = useState<"once" | "monthly">("once");
+  const [frequency, setFrequency] = useState<"monthly" | "one-time">(
+    "one-time",
+  );
 
   const [loading, setLoading] = useState(false);
 
@@ -13,7 +15,7 @@ export default function DonatePage() {
     try {
       setLoading(true);
 
-      const amount = custom ? Number(custom) : selected;
+      const amount = custom ? Number(custom) : Number(selected);
 
       if (!amount || amount <= 0) return;
 
@@ -57,13 +59,13 @@ export default function DonatePage() {
         <div className="max-w-2xl mx-auto">
           <div className="bg-white border border-forest-mist rounded-3xl p-10 shadow-sm">
             <div className="flex gap-2 mb-8 bg-forest-mist rounded-full p-1">
-              {(["once", "monthly"] as const).map((f) => (
+              {(["one-time", "monthly"] as const).map((f) => (
                 <button
                   key={f}
                   onClick={() => setFrequency(f)}
                   className={`flex-1 py-2.5 rounded-full text-sm font-medium transition-all capitalize ${frequency === f ? "bg-forest-dark text-white" : "text-forest-dark"}`}
                 >
-                  {f === "once" ? "One-time" : "Monthly"}
+                  {f === "one-time" ? "One-time" : "Monthly"}
                 </button>
               ))}
             </div>
@@ -126,7 +128,7 @@ export default function DonatePage() {
             </button> */}
             <button
               onClick={handleDonate}
-              disabled={loading || (!custom && !selected)}
+              disabled={loading || (!custom && selected === 0)}
               className="w-full bg-forest-light text-white py-4 rounded-full text-base font-bold hover:bg-forest-bright transition-colors disabled:opacity-50"
             >
               {loading
