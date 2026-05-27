@@ -7,6 +7,36 @@ export default function DonatePage() {
   const [custom, setCustom] = useState("");
   const [frequency, setFrequency] = useState<"once" | "monthly">("once");
 
+  const [loading, setLoading] = useState(false);
+
+  const handleDonate = async () => {
+    try {
+      setLoading(true);
+
+      const amount = custom ? Number(custom) : selected;
+
+      if (!amount || amount <= 0) return;
+
+      const res = await fetch("/api/create-checkout-session", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          amount,
+          frequency,
+        }),
+      });
+
+      const data = await res.json();
+
+      if (data?.url) {
+        window.location.href = data.url;
+      }
+    } catch (err) {
+      console.error(err);
+    } finally {
+      setLoading(false);
+    }
+  };
   return (
     <main className="pt-16">
       <section className="bg-forest-dark py-24 px-6 text-center">
@@ -77,8 +107,8 @@ export default function DonatePage() {
                     </span>
                   </p>
                   <p className="text-xs text-gray-500">
-                    {(custom ? parseInt(custom) : selected) >= 100
-                      ? "Plants a full tree in a community — thank you!"
+                    {(custom ? parseInt(custom) : selected) >= 500
+                      ? "Plants a full tree in a community!!! thank you!"
                       : "Helps provide seedlings and tools for our volunteers"}
                   </p>
                 </>
@@ -89,10 +119,23 @@ export default function DonatePage() {
               )}
             </div>
 
-            <button className="w-full bg-forest-light text-white py-4 rounded-full text-base font-bold hover:bg-forest-bright transition-colors">
+            {/* <button className="w-full bg-forest-light text-white py-4 rounded-full text-base font-bold hover:bg-forest-bright transition-colors">
               {custom || selected
                 ? `Donate $${custom || selected} ${frequency === "monthly" ? "/month" : ""}`
                 : "Select an amount"}
+            </button> */}
+            <button
+              onClick={handleDonate}
+              disabled={loading || (!custom && !selected)}
+              className="w-full bg-forest-light text-white py-4 rounded-full text-base font-bold hover:bg-forest-bright transition-colors disabled:opacity-50"
+            >
+              {loading
+                ? "Processing..."
+                : custom || selected
+                  ? `Donate $${custom || selected} ${
+                      frequency === "monthly" ? "/month" : ""
+                    }`
+                  : "Select an amount"}
             </button>
 
             <div

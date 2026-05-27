@@ -25,14 +25,14 @@ const projects = [
     href: "/volunteer",
   },
   {
-    image: "/awareness.jpg",
+    image: "/globalawarenes.png",
     title: "Global Awareness Campaign",
     tag: "Campaign",
     desc: "Raising awareness online and offline about the importance of trees, clean air, and environmental responsibility worldwide.",
     href: "/projects/global-awareness",
   },
   {
-    image: "/seedlings.jpg",
+    image: "/seedlingdistribution.png",
     title: "Seedling Distribution",
     tag: "Ongoing",
     desc: "Distributing free seedlings to families, schools, and community centers so everyone can plant a tree close to home.",

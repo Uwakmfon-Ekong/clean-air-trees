@@ -346,10 +346,10 @@ export default function Home() {
               Donate $20
             </Link>
             <Link
-              href="/donate?amount=40"
+              href="/donate?amount=50"
               className="bg-forest-light text-white px-7 py-3 rounded-full text-sm font-semibold hover:bg-forest-bright transition-colors no-underline"
             >
-              Donate $40 ⭐
+              Donate $50 
             </Link>
             <Link
               href="/donate"

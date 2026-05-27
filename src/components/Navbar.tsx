@@ -24,10 +24,10 @@ export default function Navbar() {
       <div className="max-w-7xl mx-auto px-6 flex items-center justify-between h-16">
         {/* Logo */}
         <Link href="/" className="flex items-center gap-3 no-underline">
-          <Image src={logo} alt="Logo"  className="rounded-full w-20" />
+          <Image src={logo} alt="Logo"  className="rounded-full lg:w-20 w-14" />
           <div>
-            <div className="text-white font-semibold text-[28px] leading-tight">THE CLEAN AIR</div>
-            <div className="text-forest-pale text-lg tracking-widest leading-tight">TREES PROJECT</div>
+            <div className="text-white font-semibold lg:text-[25px] leading-tight">THE CLEAN AIR</div>
+            <div className="text-forest-pale lg:text-[16px] tracking-widest leading-tight">TREES PROJECT</div>
           </div>
         </Link>
 
