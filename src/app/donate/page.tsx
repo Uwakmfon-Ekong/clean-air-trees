@@ -15,9 +15,10 @@ export default function DonatePage() {
     try {
       setLoading(true);
 
-      const amount = custom ? Number(custom) : Number(selected);
+      const amount = Number(custom || selected);
 
       if (!amount || amount <= 0) return;
+      if (!amount || amount < 1) return;
 
       const res = await fetch("/api/create-checkout-session", {
         method: "POST",
