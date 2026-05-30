@@ -8,6 +8,7 @@
     "start": "next start"
   },
   "dependencies": {
+    "@emailjs/browser": "^4.4.1",
     "@stripe/react-stripe-js": "^6.4.0",
     "@stripe/stripe-js": "^9.7.0",
     "lucide-react": "^1.16.0",
