@@ -6,29 +6,20 @@ const stripe = new Stripe(process.env.STRIPE_SECRET_KEY!);
 export async function POST(req: NextRequest) {
   try {
     const { amount, frequency } = await req.json();
-     
 
     const safeAmount = Number(amount);
 
     if (!safeAmount || safeAmount < 1) {
-      return NextResponse.json(
-        { error: "Invalid amount" },
-        { status: 400 }
-      );
+      return NextResponse.json({ error: "Invalid amount" }, { status: 400 });
     }
 
-    if (!["monthly", "one-time"].includes(frequency)){
-      return NextResponse.json(
-        { error: "Invalid frequency" },
-        { status: 400 }
-      );
+    if (!["monthly", "one-time"].includes(frequency)) {
+      return NextResponse.json({ error: "Invalid frequency" }, { status: 400 });
     }
 
-    const baseUrl =
-      process.env.NEXT_PUBLIC_BASE_URL || "http://localhost:3000";
+    const origin = req.headers.get("origin") || "http://localhost:3000";
 
-    const mode =
-      frequency === "monthly" ? "subscription" : "payment";
+    const mode = frequency === "monthly" ? "subscription" : "payment";
 
     const session = await stripe.checkout.sessions.create({
       payment_method_types: ["card"],
@@ -61,8 +52,8 @@ export async function POST(req: NextRequest) {
             },
       ],
 
-      success_url: `${baseUrl}/donate/success`,
-      cancel_url: `${baseUrl}/donate`,
+      success_url: `${origin}/donate/success`,
+      cancel_url: `${origin}/donate`,
     });
 
     return NextResponse.json({ url: session.url });
@@ -71,7 +62,7 @@ export async function POST(req: NextRequest) {
 
     return NextResponse.json(
       { error: "Checkout session failed" },
-      { status: 500 }
+      { status: 500 },
     );
   }
 }
