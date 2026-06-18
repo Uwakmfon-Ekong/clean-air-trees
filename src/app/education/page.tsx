@@ -417,7 +417,7 @@ export default function EducationPage() {
               5 Ways You Can Help
             </h2>
             <p className="text-gray-500 max-w-xl mx-auto">
-              Small everyday actions add up to a big difference for our planet.
+             5 ways everyday actions add up to a big difference for our planet.
             </p>
           </div>
           <div className="flex flex-col gap-4">
