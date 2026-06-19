@@ -11,6 +11,7 @@ const links = [
   { label: "What We Do", href: "/what-we-do" },
   { label: "Education", href: "/education" },
   { label: "Projects", href: "/projects" },
+  { label: "Global Awareness", href: "/global-awareness" },
   { label: "About Us", href: "/about" },
   // { label: "Blog", href: "/blog" },
   { label: "Contact", href: "/contact" },

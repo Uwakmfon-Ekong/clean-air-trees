@@ -8,6 +8,7 @@ export default function AboutPage() {
     <main className="pt-16">
       {/* HERO */}
       <section className="bg-forest-dark py-24 px-6 text-center">
+        
         <span className="text-xs font-semibold text-forest-pale uppercase tracking-widest block mb-3">
           About Us
         </span>
@@ -69,36 +70,25 @@ export default function AboutPage() {
             </p>
           </div>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-4">
-            {[
-              { icon: "🌬️", label: "Cleaner air", href: "/why-trees#air" },
-              { icon: "🌿", label: "Better health", href: "/why-trees#health" },
-              {
-                icon: "🌎",
-                label: "A stronger planet",
-                href: "/why-trees#climate",
-              },
-              {
-                icon: "👨‍👩‍👧‍👦",
-                label: "Hope for families",
-                href: "/what-we-do#community",
-              },
-              {
-                icon: "🌱",
-                label: "A better future for children",
-                href: "/projects",
-              },
+           {[
+              { label: "Cleaner air", href: "/why-trees#air", color: "bg-blue-400" },
+              { label: "Better health", href: "/why-trees#health", color: "bg-green-400" },
+              { label: "A stronger planet", href: "/why-trees#climate", color: "bg-emerald-400" },
+              { label: "Hope for families", href: "/what-we-do#community", color: "bg-amber-400" },
+              { label: "A better future for children", href: "/projects", color: "bg-teal-400" },
             ].map((i) => (
               <Link
                 key={i.label}
                 href={i.href}
-                className="bg-white border border-forest-mist rounded-2xl p-6 text-center no-underline hover:border-forest-light hover:-translate-y-1 transition-all"
+                className="bg-white border border-forest-mist rounded-2xl p-6 text-center no-underline hover:border-forest-light hover:-translate-y-1 hover:shadow-md transition-all"
               >
-                <div className="text-3xl mb-3">{i.icon}</div>
+                <div className={`w-10 h-1.5 rounded-full ${i.color} mx-auto mb-4`} />
                 <p className="text-sm font-medium text-forest-dark">
                   {i.label}
                 </p>
               </Link>
             ))}
+            
           </div>
         </div>
       </section>

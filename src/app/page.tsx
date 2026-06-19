@@ -134,10 +134,10 @@ export default function Home() {
               Volunteer
             </Link>
             <Link
-              href="/about"
+              href="/contact"
               className="border-2 border-white/70 text-white px-8 py-3.5 rounded-full text-sm font-semibold hover:bg-white/10 transition-all hover:-translate-y-0.5"
             >
-              Learn More
+              Contact us
             </Link>
           </div>
 
