@@ -32,16 +32,11 @@ export default function WhatWeDoPage() {
   return (
     <main className="pt-16 overflow-x-hidden">
       {/* HERO */}
-      <section className="bg-forest-dark py-24 px-6 text-center relative overflow-hidden">
-        <div className="absolute inset-0 opacity-20">
-          <Image
-            src="/forest-bg.jpg"
-            alt=""
-            fill
-            className="object-cover"
-          />
-        </div>
-
+      <section
+        className="py-24 px-6 text-center relative bg-cover bg-center bg-no-repeat"
+        style={{ backgroundImage: "url('/education.jpeg')" }}
+      >
+        <div className="absolute inset-0 bg-forest-dark/95" />
         <div className="relative z-10">
           <span className="text-xs font-semibold text-forest-pale uppercase tracking-widest block mb-3">
             Our Work

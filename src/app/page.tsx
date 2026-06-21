@@ -3,40 +3,46 @@ import Image from "next/image";
 import logo from "../../public/logo.png";
 import Navbar from "@/components/Navbar";
 import founder from "../../public/founder.png";
+import { Wind, Droplets, ThermometerSun, Bird, HeartPulse, Globe2 } from "lucide-react";
 
 const whyCards = [
   {
     title: "Cleaner Air",
     desc: "Producing oxygen and improving air quality for communities everywhere.",
     href: "/why-trees#air",
+    icon: Wind,
   },
   {
     title: "Flood Protection",
     desc: "Reducing flooding and protecting soil from erosion and degradation.",
     href: "/why-trees#flood",
+    icon: Droplets,
   },
   {
     title: "Cooling Cities",
     desc: "Lowering heat in urban areas and reducing the urban heat island effect.",
     href: "/why-trees#heat",
+    icon: ThermometerSun,
   },
   {
     title: "Wildlife Support",
     desc: "Supporting birds and wildlife by restoring natural habitats.",
     href: "/why-trees#wildlife",
+    icon: Bird,
   },
   {
     title: "Better Health",
     desc: "Improving mental and physical health for people who live near green spaces.",
     href: "/why-trees#health",
+    icon: HeartPulse,
   },
   {
     title: "Fight Climate Change",
     desc: "Absorbing carbon dioxide and slowing global warming for future generations.",
     href: "/why-trees#climate",
+    icon: Globe2,
   },
 ];
-
 const projects = [
   {
     image: "/communityplanting.png",
@@ -177,26 +183,29 @@ export default function Home() {
             </p>
           </div>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-            {whyCards.map((c) => (
-              <Link
-                key={c.title}
-                href={c.href}
-                className="bg-white border border-forest-mist rounded-2xl p-7 no-underline hover:-translate-y-1 hover:border-forest-light hover:shadow-md transition-all duration-200 block group"
-              >
-                <div className="w-10 h-10 bg-forest-mist rounded-xl flex items-center justify-center mb-4">
-                  <div className="w-4 h-4 bg-forest-light rounded-full group-hover:scale-110 transition-transform" />
-                </div>
-                <h3 className="text-base font-semibold text-forest-dark mb-2">
-                  {c.title}
-                </h3>
-                <p className="text-sm text-gray-500 leading-relaxed">
-                  {c.desc}
-                </p>
-                <span className="text-forest-light text-sm mt-3 block group-hover:translate-x-1 transition-transform">
-                  Learn more →
-                </span>
-              </Link>
-            ))}
+           {whyCards.map((c) => {
+              const Icon = c.icon;
+              return (
+                <Link
+                  key={c.title}
+                  href={c.href}
+                  className="bg-white border border-forest-mist rounded-2xl p-7 no-underline hover:-translate-y-1 hover:border-forest-light hover:shadow-md transition-all duration-200 block group"
+                >
+                  <div className="w-10 h-10 bg-forest-mist rounded-xl flex items-center justify-center mb-4 group-hover:bg-forest-light/15 transition-colors">
+                    <Icon size={20} className="text-forest-dark group-hover:text-forest-light transition-colors" />
+                  </div>
+                  <h3 className="text-base font-semibold text-forest-dark mb-2">
+                    {c.title}
+                  </h3>
+                  <p className="text-sm text-gray-500 leading-relaxed">
+                    {c.desc}
+                  </p>
+                  <span className="text-forest-light text-sm mt-3 block group-hover:translate-x-1 transition-transform">
+                    Learn more →
+                  </span>
+                </Link>
+              );
+            })}
           </div>
           <div className="text-center mt-10">
             <Link

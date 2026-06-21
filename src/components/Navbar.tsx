@@ -11,7 +11,9 @@ const links = [
   { label: "What We Do", href: "/what-we-do" },
   { label: "Education", href: "/education" },
   { label: "Projects", href: "/projects" },
+  { label: "Partners", href: "/partners" },
   { label: "Global Awareness", href: "/projects/global-awareness" },
+  {label:"Gallery", href:"/media"},
   { label: "About Us", href: "/about" },
   // { label: "Blog", href: "/blog" },
   { label: "Contact", href: "/contact" },
@@ -22,7 +24,7 @@ export default function Navbar() {
 
   return (
     <nav className="fixed top-0 left-0 right-0 z-50 py-5 bg-forest-dark shadow-md">
-      <div className="max-w-7xl mx-auto px-6 flex items-center justify-between h-16">
+      <div className="max-w-8xl mx-auto lg:px-10 px-6 flex items-center justify-between h-16">
         {/* Logo */}
         <Link href="/" className="flex items-center gap-3 no-underline">
           <Image src={logo} alt="Logo"  className="rounded-full lg:w-20 w-14" />

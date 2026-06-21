@@ -10,19 +10,19 @@ const cols = {
   "Get Involved": [
     { label: "Plant a Tree", href: "/donate" },
     { label: "Volunteer", href: "/volunteer" },
-    { label: "Partner With Us", href: "/contact" },
+    { label: "Partner With Us", href: "/partners" },
     { label: "Donate", href: "/donate" },
   ],
   Learn: [
     { label: "Why Trees Matter", href: "/why-trees" },
     { label: "What We Do", href: "/what-we-do" },
     { label: "Projects", href: "/projects" },
-    { label: "Blog", href: "/blog" },
+    // { label: "Blog", href: "/blog" },
   ],
   Contact: [
     { label: "Contact Us", href: "/contact" },
     { label: "FAQ", href: "/faqs" },
-    { label: "Media", href: "/contact#media" },
+    { label: "Media", href: "/media" },
   ],
 };
 

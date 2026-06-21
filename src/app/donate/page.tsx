@@ -42,20 +42,25 @@ export default function DonatePage() {
   };
   return (
     <main className="pt-16">
-      <section className="bg-forest-dark py-24 px-6 text-center">
-        <span className="text-xs font-semibold text-forest-pale uppercase tracking-widest block mb-3">
-          Support the Mission
-        </span>
-        <h1 className="text-5xl font-bold text-white mb-5">
-          Support a Greener Tomorrow
-        </h1>
-        <p className="text-white/65 max-w-xl mx-auto leading-relaxed text-lg">
-          Your donation helps us buy seedlings, tools, water supplies,
-          transportation, and educational materials for communities. Every
-          contribution plants hope.
-        </p>
-      </section>
-
+     <section
+          className="py-24 px-6 text-center relative bg-cover bg-center bg-no-repeat"
+          style={{ backgroundImage: "url('/planting.jpeg')" }}
+        >
+          <div className="absolute inset-0 bg-forest-dark/90" />
+          <div className="relative z-10">
+            <span className="text-xs font-semibold text-forest-pale uppercase tracking-widest block mb-3">
+              Support the Mission
+            </span>
+            <h1 className="text-5xl font-bold text-white mb-5">
+              Support a Greener Tomorrow
+            </h1>
+            <p className="text-white/65 max-w-xl mx-auto leading-relaxed text-lg">
+              Your donation helps us buy seedlings, tools, water supplies,
+              transportation, and educational materials for communities. Every
+              contribution plants hope.
+            </p>
+          </div>
+        </section>
       <section className="bg-forest-fog py-24 px-6">
         <div className="max-w-2xl mx-auto">
           <div className="bg-white border border-forest-mist rounded-3xl p-10 shadow-sm">

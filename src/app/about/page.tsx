@@ -2,22 +2,28 @@ import Link from "next/link";
 import Image from "next/image";
 import founder from "../../../public/founder.png";
 import planting from "../../../public/planting.jpeg";
+import { Wind, HeartPulse, Globe2, Users, Sprout } from "lucide-react";
 
 export default function AboutPage() {
   return (
     <main className="pt-16">
       {/* HERO */}
-      <section className="bg-forest-dark py-24 px-6 text-center">
-        
-        <span className="text-xs font-semibold text-forest-pale uppercase tracking-widest block mb-3">
-          About Us
-        </span>
-        <h1 className="text-5xl font-bold text-white mb-5">Who We Are</h1>
-        <p className="text-white/65 max-w-xl mx-auto leading-relaxed text-lg">
-          The Clean Air Trees Project was founded with one simple but powerful
-          belief: every human being deserves clean, fresh, healthy air to
-          breathe.
-        </p>
+      <section
+        className="py-24 px-6 text-center relative bg-cover bg-center bg-no-repeat"
+        style={{ backgroundImage: "url('/planting.jpeg')" }}
+      >
+        <div className="absolute inset-0 bg-forest-dark/90" />
+        <div className="relative z-10">
+          <span className="text-xs font-semibold text-forest-pale uppercase tracking-widest block mb-3">
+            About Us
+          </span>
+          <h1 className="text-5xl font-bold text-white mb-5">Who We Are</h1>
+          <p className="text-white/65 max-w-xl mx-auto leading-relaxed text-lg">
+            The Clean Air Trees Project was founded with one simple but powerful
+            belief: every human being deserves clean, fresh, healthy air to
+            breathe.
+          </p>
+        </div>
       </section>
 
       {/* MISSION */}
@@ -71,23 +77,28 @@ export default function AboutPage() {
           </div>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-4">
            {[
-              { label: "Cleaner air", href: "/why-trees#air", color: "bg-blue-400" },
-              { label: "Better health", href: "/why-trees#health", color: "bg-green-400" },
-              { label: "A stronger planet", href: "/why-trees#climate", color: "bg-emerald-400" },
-              { label: "Hope for families", href: "/what-we-do#community", color: "bg-amber-400" },
-              { label: "A better future for children", href: "/projects", color: "bg-teal-400" },
-            ].map((i) => (
-              <Link
-                key={i.label}
-                href={i.href}
-                className="bg-white border border-forest-mist rounded-2xl p-6 text-center no-underline hover:border-forest-light hover:-translate-y-1 hover:shadow-md transition-all"
-              >
-                <div className={`w-10 h-1.5 rounded-full ${i.color} mx-auto mb-4`} />
-                <p className="text-sm font-medium text-forest-dark">
-                  {i.label}
-                </p>
-              </Link>
-            ))}
+              { label: "Cleaner air", href: "/why-trees#air", icon: Wind },
+              { label: "Better health", href: "/why-trees#health", icon: HeartPulse },
+              { label: "A stronger planet", href: "/why-trees#climate", icon: Globe2 },
+              { label: "Hope for families", href: "/what-we-do#community", icon: Users },
+              { label: "A better future for children", href: "/projects", icon: Sprout },
+            ].map((i) => {
+              const Icon = i.icon;
+              return (
+                <Link
+                  key={i.label}
+                  href={i.href}
+                  className="bg-white border border-forest-mist rounded-2xl p-6 text-center no-underline hover:border-forest-light hover:-translate-y-1 hover:shadow-md transition-all group"
+                >
+                  <div className="w-10 h-10 bg-forest-mist rounded-xl flex items-center justify-center mx-auto mb-4 group-hover:bg-forest-light/15 transition-colors">
+                    <Icon size={18} className="text-forest-dark group-hover:text-forest-light transition-colors" />
+                  </div>
+                  <p className="text-sm font-medium text-forest-dark">
+                    {i.label}
+                  </p>
+                </Link>
+              );
+            })}
             
           </div>
         </div>

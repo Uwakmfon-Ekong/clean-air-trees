@@ -43,15 +43,21 @@ const reasons = [
 export default function WhyTreesPage() {
   return (
     <main className="pt-16">
-      <section className="bg-forest-dark py-24 px-6 text-center">
-        <span className="text-xs font-semibold text-forest-pale uppercase tracking-widest block mb-3">
-          Why It Matters
-        </span>
-        <h1 className="text-5xl font-bold text-white mb-5">Why Trees Matter</h1>
-        <p className="text-white/65 max-w-xl mx-auto leading-relaxed text-lg">
-          Trees are more than plants — they are life-support systems for our
-          planet and every community on it.
-        </p>
+     <section
+        className="py-24 px-6 text-center relative bg-cover bg-center bg-no-repeat"
+        style={{ backgroundImage: "url('/tees2.jpg')" }}
+      >
+        <div className="absolute inset-0 bg-forest-dark/95" />
+        <div className="relative z-10">
+          <span className="text-xs font-semibold text-forest-pale uppercase tracking-widest block mb-3">
+            Why It Matters
+          </span>
+          <h1 className="text-5xl font-bold text-white mb-5">Why Trees Matter</h1>
+          <p className="text-white/65 max-w-xl mx-auto leading-relaxed text-lg">
+            Trees are more than plants — they are life-support systems for our
+            planet and every community on it.
+          </p>
+        </div>
       </section>
 
       <section className="bg-forest-fog py-8 px-6">
