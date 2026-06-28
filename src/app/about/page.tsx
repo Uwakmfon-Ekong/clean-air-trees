@@ -135,19 +135,15 @@ export default function AboutPage() {
       <section id="founder" className="bg-white py-24 px-6">
         <div className="max-w-5xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
           <div className="flex flex-col gap-4">
-<div className="flex flex-col gap-3">
-  <img
+ 
+<img
     src="/davidandwife.jpg"
     alt="David and Wife"
     className="rounded-3xl w-full object-contain"
   />
- 
-</div>
   
 </div>
           <div>
-            {/* Two smaller images side by side */}
- 
             <span className="text-xs font-semibold text-forest uppercase tracking-widest block mb-3">
               Founder Commitment
             </span>

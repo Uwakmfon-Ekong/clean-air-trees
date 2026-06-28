@@ -432,8 +432,8 @@ export default function Home() {
             <div className="rounded-3xl overflow-hidden relative">
               <img
                 src="/davidandwife.jpg"
-                alt="David and Family"
-                className="w-full h-[80vh] object-cover  rounded-3xl"
+                alt="David and Wife"
+                className="rounded-3xl w-full h-[700px] object-cover object-[center_0%]"
               />
               <div className="absolute bottom-4 sm:bottom-6 left-4 sm:left-6 right-4 sm:right-6 bg-forest-darkest/80 rounded-2xl p-3 sm:p-4">
                 <p className="text-white font-semibold text-sm">

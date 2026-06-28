@@ -7,6 +7,7 @@ const galleryImages = [
   "/media2.jpeg",
   "/media3.jpeg",
   "/media4.jpeg",
+  "/davidsolo.jpg",
   "/media5.jpeg",
   "/media6.jpeg",
   "/media7.jpeg",
@@ -15,6 +16,7 @@ const galleryImages = [
   "/media10.jpeg",
   "/media11.jpeg",
   "/media12.png",
+  "/davidpersonal.jpg",
 ];
 
 const PAGE_SIZE = 12;
