@@ -2,6 +2,7 @@
 import { useState, useRef } from "react";
 import emailjs from "@emailjs/browser";
 import Link from "next/link";
+import { CheckCircle } from "lucide-react";
 
 export default function VolunteerPage() {
   const [sent, setSent] = useState(false);
@@ -86,9 +87,9 @@ export default function VolunteerPage() {
 
             {sent ? (
               <div className="flex flex-col items-center text-center py-8">
-                <div className="w-16 h-16 bg-forest-mist rounded-full flex items-center justify-center mx-auto mb-5">
-                  <div className="w-8 h-8 bg-forest-light rounded-full" />
-                </div>
+                <div className="w-16 h-16 bg-forest-mist rounded-full flex items-center justify-center mx-auto mb-6">
+          <CheckCircle size={32} className="text-forest-light" />
+        </div>
                 <h3 className="text-xl font-bold text-forest-dark mb-2">Thank you for signing up!</h3>
                 <p className="text-gray-500 text-sm">We'll be in touch soon with details on how to get involved.</p>
               </div>

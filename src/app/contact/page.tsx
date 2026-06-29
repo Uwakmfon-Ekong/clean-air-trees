@@ -1,6 +1,7 @@
 "use client";
 import { useState, useRef } from "react";
 import emailjs from "@emailjs/browser";
+import { CheckCircle } from "lucide-react";
 
 function validate(fields: {
   firstName: string;
@@ -109,9 +110,9 @@ export default function ContactPage() {
           {/* Form */}
           {sent ? (
             <div className="bg-white border border-forest-mist rounded-3xl p-10 flex flex-col items-center justify-center text-center">
-              <div className="w-16 h-16 bg-forest-mist rounded-full flex items-center justify-center mx-auto mb-5">
-                <div className="w-8 h-8 bg-forest-light rounded-full" />
-              </div>
+               <div className="w-16 h-16 bg-forest-mist rounded-full flex items-center justify-center mx-auto mb-6">
+          <CheckCircle size={32} className="text-forest-light" />
+        </div>
               <h3 className="text-2xl font-bold text-forest-dark mb-2">Message Sent!</h3>
               <p className="text-gray-500 text-sm">
                 We'll get back to you within 48 hours. Thank you for reaching out!
