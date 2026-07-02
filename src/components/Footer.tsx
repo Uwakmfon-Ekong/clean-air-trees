@@ -23,7 +23,7 @@ const cols = {
   Contact: [
     { label: "Contact Us", href: "/contact" },
     { label: "FAQ", href: "/faqs" },
-    { label: "Media", href: "/media" },
+    { label: "Gallery", href: "/media" },
   ],
 };
 

@@ -12,7 +12,8 @@ const links = [
   { label: "Projects", href: "/projects" },
   { label: "Partners", href: "/partners" },
   { label: "Global Awareness", href: "/projects/global-awareness" },
-  { label: "Gallery", href: "/media" },
+  // { label: "Gallery", href: "/media" },
+  { label: "Corporate Partnerships", href: "/corporate-partnerships" },
   { label: "About Us", href: "/about" },
   { label: "Contact", href: "/contact" },
 ];
