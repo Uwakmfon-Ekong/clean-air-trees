@@ -13,6 +13,7 @@ const cols = {
     { label: "Volunteer", href: "/volunteer" },
     { label: "Partner With Us", href: "/partners" },
     { label: "Donate", href: "/donate" },
+    { label: "Corporate Partnerships", href: "/corporate-partnerships" }
   ],
   Learn: [
     { label: "Why Trees Matter", href: "/why-trees" },
