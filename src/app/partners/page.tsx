@@ -131,7 +131,7 @@ export default function PartnersPage() {
               We're always open to collaborating with organizations, businesses, schools, and individuals who share our commitment to environmental conservation and sustainable development.
             </p>
             <Link
-              href="/contact"
+              href="/corporate-partnerships"
               className="bg-forest-dark text-white px-8 py-3.5 rounded-full text-sm font-semibold hover:bg-forest-mid transition-colors no-underline inline-block"
             >
               Get in Touch
