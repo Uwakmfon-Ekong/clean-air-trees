@@ -49,7 +49,7 @@ const socials = [
     ),
   },
   {
-    href: "https://www.tiktok.com/@cleanairtreesproject",
+    href: "https://www.tiktok.com/@cleanair05",
     label: "TikTok",
     icon: (
       <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor">
