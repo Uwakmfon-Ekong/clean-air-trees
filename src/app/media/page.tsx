@@ -37,9 +37,36 @@ export default function MediaPage() {
             </p>
           </div>
         </section>
+{/* EDUCATIONAL VIDEO */}
+<section className="bg-white py-16 sm:py-20 px-4 sm:px-6">
+  <div className="max-w-4xl mx-auto">
+    <div className="text-center mb-8">
+      <span className="text-xs font-semibold text-forest-dark uppercase tracking-widest block mb-3">
+        Environmental Education
+      </span>
+      <h2 className="text-3xl font-bold text-forest-dark mb-3">
+        Watch & Learn
+      </h2>
+      <p className="text-forest-dark/60 leading-relaxed max-w-xl mx-auto text-sm">
+        Learn about our mission, tree planting programs, and the impact we are creating across communities.
+      </p>
+    </div>
+    <div className="rounded-3xl overflow-hidden border border-white/10 shadow-2xl">
+      <video
+        controls
+        poster="/media1.jpeg"
+        className="w-full"
+        preload="metadata"
+      >
+        <source src="/cleanairvideo.mp4" type="video/mp4" />
+        Your browser does not support the video tag.
+      </video>
+    </div>
+  </div>
+</section>
 
-        {/* FEATURED GALLERY */}
-        <GalleryGrid />
+{/* FEATURED GALLERY */}
+<GalleryGrid />
 
         {/* SUCCESS STORIES */}
         <section className="bg-white py-24 px-6">
