@@ -51,10 +51,11 @@ export default function MediaPage() {
         Learn about our mission, tree planting programs, and the impact we are creating across communities.
       </p>
     </div>
-    <div className="rounded-3xl overflow-hidden border border-white/10 shadow-2xl">
+  <div className="w-full grid grid-cols-1 sm:grid-cols-2 gap-6">
+      <div className="rounded-3xl overflow-hidden border border-white/10 shadow-2xl">
       <video
         controls
-        poster="/media1.jpeg"
+        
         className="w-full"
         preload="metadata"
       >
@@ -62,6 +63,18 @@ export default function MediaPage() {
         Your browser does not support the video tag.
       </video>
     </div>
+     <div className="rounded-3xl overflow-hidden border border-white/10 shadow-2xl">
+      <video
+        controls
+        
+        className="w-full"
+        preload="metadata"
+      >
+        <source src="/cleanairvideo2.mp4" type="video/mp4" />
+        Your browser does not support the video tag.
+      </video>
+    </div>
+  </div>
   </div>
 </section>
 
