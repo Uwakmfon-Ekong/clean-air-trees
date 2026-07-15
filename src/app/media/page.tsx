@@ -1,22 +1,40 @@
+"use client";
+import { useState, useEffect } from "react";
 import GalleryGrid from "@/components/imagegrid";
+import { client } from "@/sanity/lib/client";
+import { videoQuery } from "@/sanity/lib/queries";
+
+type SanityVideo = {
+  title: string;
+  description?: string;
+  videoUrl?: string;
+  youtubeUrl?: string;
+};
 
 const testimonials = [
   {
-    quote:
-      "Participating in The Clean Air Trees Project gave me the opportunity to contribute to a healthier environment while connecting with people who share a passion for sustainability.",
+    quote: "Participating in The Clean Air Trees Project gave me the opportunity to contribute to a healthier environment while connecting with people who share a passion for sustainability.",
     name: "Community Volunteer",
   },
   {
-    quote:
-      "The project has helped beautify our neighborhood and provided environmental education for our students.",
+    quote: "The project has helped beautify our neighborhood and provided environmental education for our students.",
     name: "School Partner",
   },
 ];
 
 export default function MediaPage() {
+  const [sanityVideo, setSanityVideo] = useState<SanityVideo | null>(null);
+
+  useEffect(() => {
+    client.fetch(videoQuery).then((data) => {
+      setSanityVideo(data || null);
+    });
+  }, []);
+
   return (
     <>
       <main className="pt-16">
+
         {/* HERO */}
         <section
           className="py-24 px-6 text-center relative bg-cover bg-center bg-no-repeat"
@@ -37,49 +55,66 @@ export default function MediaPage() {
             </p>
           </div>
         </section>
-{/* EDUCATIONAL VIDEO */}
-<section className="bg-white py-16 sm:py-20 px-4 sm:px-6">
-  <div className="max-w-4xl mx-auto">
-    <div className="text-center mb-8">
-      <span className="text-xs font-semibold text-forest-dark uppercase tracking-widest block mb-3">
-        Environmental Education
-      </span>
-      <h2 className="text-3xl font-bold text-forest-dark mb-3">
-        Watch & Learn
-      </h2>
-      <p className="text-forest-dark/60 leading-relaxed max-w-xl mx-auto text-sm">
-        Learn about our mission, tree planting programs, and the impact we are creating across communities.
-      </p>
-    </div>
-  <div className="w-full grid grid-cols-1 sm:grid-cols-2 gap-6">
-      <div className="rounded-3xl overflow-hidden border border-white/10 shadow-2xl">
-      <video
-        controls
-        
-        className="w-full"
-        preload="metadata"
-      >
-        <source src="/cleanairvideo.mp4" type="video/mp4" />
-        Your browser does not support the video tag.
-      </video>
-    </div>
-     <div className="rounded-3xl overflow-hidden border border-white/10 shadow-2xl">
-      <video
-        controls
-        
-        className="w-full"
-        preload="metadata"
-      >
-        <source src="/cleanairvideo2.mp4" type="video/mp4" />
-        Your browser does not support the video tag.
-      </video>
-    </div>
-  </div>
-  </div>
-</section>
 
-{/* FEATURED GALLERY */}
-<GalleryGrid />
+        {/* EDUCATIONAL VIDEO */}
+        <section className="bg-white py-16 sm:py-20 px-4 sm:px-6">
+          <div className="max-w-4xl mx-auto">
+            <div className="text-center mb-8">
+              <span className="text-xs font-semibold text-forest-dark uppercase tracking-widest block mb-3">
+                Environmental Education
+              </span>
+              <h2 className="text-3xl font-bold text-forest-dark mb-3">
+                {sanityVideo?.title || "Watch & Learn"}
+              </h2>
+              <p className="text-forest-dark/60 leading-relaxed max-w-xl mx-auto text-sm">
+                {sanityVideo?.description || "Learn about our mission, tree planting programs, and the impact we are creating across communities."}
+              </p>
+            </div>
+
+            <div className="w-full grid grid-cols-1 sm:grid-cols-2 gap-6">
+              {/* hardcoded video 1 — always shows */}
+              <div className="rounded-3xl overflow-hidden border border-forest-mist shadow-lg">
+                <video controls className="w-full" preload="metadata">
+                  <source src="/cleanairvideo.mp4" type="video/mp4" />
+                  Your browser does not support the video tag.
+                </video>
+              </div>
+
+              {/* hardcoded video 2 — always shows */}
+              <div className="rounded-3xl overflow-hidden border border-forest-mist shadow-lg">
+                <video controls className="w-full" preload="metadata">
+                  <source src="/cleanairvideo2.mp4" type="video/mp4" />
+                  Your browser does not support the video tag.
+                </video>
+              </div>
+
+              {/* Sanity video — shows when David uploads one */}
+              {sanityVideo?.videoUrl && (
+                <div className="rounded-3xl overflow-hidden border border-forest-mist shadow-lg sm:col-span-2">
+                  <video controls className="w-full" preload="metadata">
+                    <source src={sanityVideo.videoUrl} type="video/mp4" />
+                    Your browser does not support the video tag.
+                  </video>
+                </div>
+              )}
+
+              {/* YouTube embed — shows if David pastes a YouTube link */}
+              {sanityVideo?.youtubeUrl && (
+                <div className="rounded-3xl overflow-hidden border border-forest-mist shadow-lg sm:col-span-2 aspect-video">
+                  <iframe
+                    src={sanityVideo.youtubeUrl.replace("watch?v=", "embed/")}
+                    className="w-full h-full"
+                    allowFullScreen
+                    title={sanityVideo.title}
+                  />
+                </div>
+              )}
+            </div>
+          </div>
+        </section>
+
+        {/* FEATURED GALLERY */}
+        <GalleryGrid />
 
         {/* SUCCESS STORIES */}
         <section className="bg-white py-24 px-6">
@@ -109,6 +144,7 @@ export default function MediaPage() {
             </div>
           </div>
         </section>
+
       </main>
     </>
   );

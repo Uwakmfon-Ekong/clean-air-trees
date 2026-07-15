@@ -1,8 +1,15 @@
 "use client";
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import { client } from "@/sanity/lib/client";
+import { galleryImagesQuery } from "@/sanity/lib/queries";
 
-// add as many images as you want here — the grid scales automatically
-const galleryImages = [
+type SanityImage = {
+  _id: string;
+  url: string;
+  caption?: string;
+};
+
+const hardcodedImages = [
   "/media1.jpeg",
   "/media2.jpeg",
   "/media3.jpeg",
@@ -22,8 +29,20 @@ const galleryImages = [
 const PAGE_SIZE = 12;
 
 export default function GalleryGrid() {
+  const [sanityImages, setSanityImages] = useState<SanityImage[]>([]);
   const [visible, setVisible] = useState(PAGE_SIZE);
   const [activeImage, setActiveImage] = useState<string | null>(null);
+
+  useEffect(() => {
+    client.fetch(galleryImagesQuery).then((data) => {
+      setSanityImages(data || []);
+    });
+  }, []);
+
+  const allImages = [
+    ...hardcodedImages.map((url, i) => ({ id: `h${i}`, url })),
+    ...sanityImages.map((img) => ({ id: img._id, url: img.url })),
+  ];
 
   return (
     <section className="bg-forest-fog py-24 px-6">
@@ -41,15 +60,15 @@ export default function GalleryGrid() {
         </div>
 
         <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4">
-          {galleryImages.slice(0, visible).map((img, i) => (
+          {allImages.slice(0, visible).map((img) => (
             <button
-              key={i}
-              onClick={() => setActiveImage(img)}
+              key={img.id}
+              onClick={() => setActiveImage(img.url)}
               className="relative rounded-2xl overflow-hidden border border-forest-mist h-44 sm:h-52 group cursor-pointer"
             >
               <img
-                src={img}
-                alt={`Clean Air Trees gallery photo ${i + 1}`}
+                src={img.url}
+                alt="Clean Air Trees gallery photo"
                 className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
               />
               <div className="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-colors" />
@@ -57,7 +76,7 @@ export default function GalleryGrid() {
           ))}
         </div>
 
-        {visible < galleryImages.length && (
+        {visible < allImages.length && (
           <div className="text-center mt-10">
             <button
               onClick={() => setVisible((v) => v + PAGE_SIZE)}
@@ -67,8 +86,6 @@ export default function GalleryGrid() {
             </button>
           </div>
         )}
-
-       
       </div>
 
       {/* LIGHTBOX */}

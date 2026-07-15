@@ -1,0 +1,267 @@
+[
+  {
+    "fields": [
+      {
+        "options": {
+          "hotspot": true
+        },
+        "validation": [
+          {
+            "level": "error",
+            "rules": [
+              {
+                "flag": "presence",
+                "constraint": "required"
+              }
+            ]
+          }
+        ],
+        "name": "image",
+        "type": "image"
+      },
+      {
+        "name": "caption",
+        "type": "string"
+      },
+      {
+        "description": "Lower numbers appear first",
+        "name": "order",
+        "type": "number"
+      }
+    ],
+    "name": "galleryImage",
+    "type": "document"
+  },
+  {
+    "fields": [
+      {
+        "name": "title",
+        "type": "string"
+      },
+      {
+        "name": "description",
+        "type": "text"
+      },
+      {
+        "options": {
+          "accept": "video/*"
+        },
+        "name": "videoFile",
+        "type": "file"
+      },
+      {
+        "validation": [
+          {
+            "level": "error",
+            "rules": [
+              {
+                "flag": "uri",
+                "constraint": {
+                  "options": {
+                    "scheme": [
+                      "/^http$/",
+                      "/^https$/"
+                    ],
+                    "allowRelative": false,
+                    "relativeOnly": false,
+                    "allowCredentials": false
+                  }
+                }
+              }
+            ]
+          }
+        ],
+        "name": "youtubeUrl",
+        "type": "url",
+        "title": "YouTube URL (alternative to file upload)"
+      }
+    ],
+    "name": "siteVideo",
+    "type": "document",
+    "title": "Educational Video"
+  },
+  {
+    "fields": [
+      {
+        "validation": [
+          {
+            "level": "error",
+            "rules": [
+              {
+                "flag": "presence",
+                "constraint": "required"
+              }
+            ]
+          }
+        ],
+        "name": "title",
+        "type": "string"
+      },
+      {
+        "options": {
+          "list": [
+            "Ongoing",
+            "Education",
+            "Community",
+            "Research",
+            "Completed"
+          ]
+        },
+        "name": "tag",
+        "type": "string"
+      },
+      {
+        "validation": [
+          {
+            "level": "error",
+            "rules": [
+              {
+                "flag": "presence",
+                "constraint": "required"
+              }
+            ]
+          }
+        ],
+        "name": "description",
+        "type": "text"
+      },
+      {
+        "options": {
+          "hotspot": true
+        },
+        "name": "image",
+        "type": "image"
+      },
+      {
+        "description": "e.g. /projects/community-planting",
+        "name": "href",
+        "type": "string",
+        "title": "Link"
+      },
+      {
+        "name": "order",
+        "type": "number"
+      }
+    ],
+    "name": "project",
+    "type": "document"
+  },
+  {
+    "fields": [
+      {
+        "validation": [
+          {
+            "level": "error",
+            "rules": [
+              {
+                "flag": "presence",
+                "constraint": "required"
+              }
+            ]
+          }
+        ],
+        "name": "name",
+        "type": "string",
+        "title": "Partner Name"
+      },
+      {
+        "description": "Brief description of the partner organization",
+        "name": "description",
+        "type": "text"
+      },
+      {
+        "options": {
+          "hotspot": true
+        },
+        "name": "logo",
+        "type": "image"
+      },
+      {
+        "validation": [
+          {
+            "level": "error",
+            "rules": [
+              {
+                "flag": "uri",
+                "constraint": {
+                  "options": {
+                    "scheme": [
+                      "/^http$/",
+                      "/^https$/"
+                    ],
+                    "allowRelative": false,
+                    "relativeOnly": false,
+                    "allowCredentials": false
+                  }
+                }
+              }
+            ]
+          }
+        ],
+        "name": "url",
+        "type": "url",
+        "title": "Website URL"
+      },
+      {
+        "name": "order",
+        "type": "number"
+      }
+    ],
+    "name": "partner",
+    "type": "document"
+  },
+  {
+    "fields": [
+      {
+        "description": "Main headline on the homepage e.g. 'Plant Trees. Save Lives.'",
+        "name": "heroHeadline",
+        "type": "string"
+      },
+      {
+        "description": "Paragraph below the headline",
+        "name": "heroSubheadline",
+        "type": "text"
+      },
+      {
+        "description": "e.g. 3 (shows as 3M+)",
+        "name": "treesPlanted",
+        "type": "string"
+      },
+      {
+        "description": "e.g. 100 (shows as 100K+)",
+        "name": "peoplereached",
+        "type": "string",
+        "title": "People Reached"
+      },
+      {
+        "description": "e.g. 20 (shows as 20+)",
+        "name": "yearsOfImpact",
+        "type": "string",
+        "title": "Years of Impact"
+      },
+      {
+        "of": [
+          {
+            "fields": [
+              {
+                "name": "quote",
+                "type": "text"
+              },
+              {
+                "name": "name",
+                "type": "string",
+                "title": "Name / Role"
+              }
+            ],
+            "type": "object"
+          }
+        ],
+        "name": "testimonials",
+        "type": "array",
+        "title": "Success Stories / Testimonials"
+      }
+    ],
+    "name": "siteSettings",
+    "type": "document"
+  }
+]
